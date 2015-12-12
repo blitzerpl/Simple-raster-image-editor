@@ -28,12 +28,363 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuImage = new System.Windows.Forms.ToolStripMenuItem();
+            this.recoloringFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuImageRecolorGrayscale = new System.Windows.Forms.ToolStripMenuItem();
+            this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hueModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusImageName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusFileNameContent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusFileSize = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusFileSizeContent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusImageSize = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusImageSizeContent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripDrawing = new System.Windows.Forms.ToolStrip();
+            this.buttonPencil = new System.Windows.Forms.ToolStripButton();
+            this.buttonRubber = new System.Windows.Forms.ToolStripButton();
+            this.buttonLine = new System.Windows.Forms.ToolStripButton();
+            this.buttonRectangle = new System.Windows.Forms.ToolStripButton();
+            this.buttonEllipse = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.buttonColorDialog = new System.Windows.Forms.ToolStripButton();
+            this.textBoxColor = new System.Windows.Forms.ToolStripTextBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.menuStrip.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.toolStripDrawing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.AutoSize = false;
+            this.menuStrip.BackColor = System.Drawing.Color.LemonChiffon;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuFile,
+            this.menuImage});
+            this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip.Stretch = false;
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // menuFile
+            // 
+            this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuFileNew,
+            this.menuFileOpen,
+            this.menuFileSave});
+            this.menuFile.Name = "menuFile";
+            this.menuFile.Size = new System.Drawing.Size(37, 20);
+            this.menuFile.Text = "File";
+            // 
+            // menuFileNew
+            // 
+            this.menuFileNew.Name = "menuFileNew";
+            this.menuFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.menuFileNew.Size = new System.Drawing.Size(146, 22);
+            this.menuFileNew.Text = "New";
+            this.menuFileNew.Click += new System.EventHandler(this.menuFileNew_Click);
+            // 
+            // menuFileOpen
+            // 
+            this.menuFileOpen.Name = "menuFileOpen";
+            this.menuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.menuFileOpen.Size = new System.Drawing.Size(146, 22);
+            this.menuFileOpen.Text = "Open";
+            this.menuFileOpen.Click += new System.EventHandler(this.menuFileOpen_Click);
+            // 
+            // menuFileSave
+            // 
+            this.menuFileSave.Name = "menuFileSave";
+            this.menuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.menuFileSave.Size = new System.Drawing.Size(146, 22);
+            this.menuFileSave.Text = "Save";
+            this.menuFileSave.Click += new System.EventHandler(this.menuFileSave_Click);
+            // 
+            // menuImage
+            // 
+            this.menuImage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recoloringFiltersToolStripMenuItem});
+            this.menuImage.Name = "menuImage";
+            this.menuImage.Size = new System.Drawing.Size(52, 20);
+            this.menuImage.Text = "Image";
+            // 
+            // recoloringFiltersToolStripMenuItem
+            // 
+            this.recoloringFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuImageRecolorGrayscale,
+            this.sepiaToolStripMenuItem,
+            this.hueModifierToolStripMenuItem,
+            this.rotateChannelsToolStripMenuItem,
+            this.invertToolStripMenuItem});
+            this.recoloringFiltersToolStripMenuItem.Name = "recoloringFiltersToolStripMenuItem";
+            this.recoloringFiltersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.recoloringFiltersToolStripMenuItem.Text = "Re-coloring filters";
+            // 
+            // menuImageRecolorGrayscale
+            // 
+            this.menuImageRecolorGrayscale.Name = "menuImageRecolorGrayscale";
+            this.menuImageRecolorGrayscale.Size = new System.Drawing.Size(160, 22);
+            this.menuImageRecolorGrayscale.Text = "Greyscale";
+            this.menuImageRecolorGrayscale.Click += new System.EventHandler(this.menuImageRecolorGrayscale_Click);
+            // 
+            // sepiaToolStripMenuItem
+            // 
+            this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.sepiaToolStripMenuItem.Text = "Sepia";
+            // 
+            // hueModifierToolStripMenuItem
+            // 
+            this.hueModifierToolStripMenuItem.Name = "hueModifierToolStripMenuItem";
+            this.hueModifierToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.hueModifierToolStripMenuItem.Text = "Hue Modifier";
+            // 
+            // rotateChannelsToolStripMenuItem
+            // 
+            this.rotateChannelsToolStripMenuItem.Name = "rotateChannelsToolStripMenuItem";
+            this.rotateChannelsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.rotateChannelsToolStripMenuItem.Text = "Rotate Channels";
+            // 
+            // invertToolStripMenuItem
+            // 
+            this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.invertToolStripMenuItem.Text = "Invert";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusImageName,
+            this.statusFileNameContent,
+            this.statusFileSize,
+            this.statusFileSizeContent,
+            this.statusImageSize,
+            this.statusImageSizeContent});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusImageName
+            // 
+            this.statusImageName.Name = "statusImageName";
+            this.statusImageName.Size = new System.Drawing.Size(61, 17);
+            this.statusImageName.Text = "File name:";
+            // 
+            // statusFileNameContent
+            // 
+            this.statusFileNameContent.Name = "statusFileNameContent";
+            this.statusFileNameContent.Size = new System.Drawing.Size(37, 17);
+            this.statusFileNameContent.Text = "          ";
+            // 
+            // statusFileSize
+            // 
+            this.statusFileSize.Name = "statusFileSize";
+            this.statusFileSize.Size = new System.Drawing.Size(50, 17);
+            this.statusFileSize.Text = "File size:";
+            // 
+            // statusFileSizeContent
+            // 
+            this.statusFileSizeContent.Name = "statusFileSizeContent";
+            this.statusFileSizeContent.Size = new System.Drawing.Size(37, 17);
+            this.statusFileSizeContent.Text = "          ";
+            // 
+            // statusImageSize
+            // 
+            this.statusImageSize.Name = "statusImageSize";
+            this.statusImageSize.Size = new System.Drawing.Size(65, 17);
+            this.statusImageSize.Text = "Image size:";
+            // 
+            // statusImageSizeContent
+            // 
+            this.statusImageSizeContent.Name = "statusImageSizeContent";
+            this.statusImageSizeContent.Size = new System.Drawing.Size(37, 17);
+            this.statusImageSizeContent.Text = "          ";
+            // 
+            // toolStripDrawing
+            // 
+            this.toolStripDrawing.BackColor = System.Drawing.Color.LemonChiffon;
+            this.toolStripDrawing.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStripDrawing.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonPencil,
+            this.buttonRubber,
+            this.buttonLine,
+            this.buttonRectangle,
+            this.buttonEllipse,
+            this.toolStripSeparator1,
+            this.buttonColorDialog,
+            this.textBoxColor});
+            this.toolStripDrawing.Location = new System.Drawing.Point(0, 24);
+            this.toolStripDrawing.Name = "toolStripDrawing";
+            this.toolStripDrawing.Size = new System.Drawing.Size(28, 515);
+            this.toolStripDrawing.TabIndex = 2;
+            this.toolStripDrawing.Text = "toolStrip1";
+            // 
+            // buttonPencil
+            // 
+            this.buttonPencil.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonPencil.Image = ((System.Drawing.Image)(resources.GetObject("buttonPencil.Image")));
+            this.buttonPencil.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonPencil.Name = "buttonPencil";
+            this.buttonPencil.Size = new System.Drawing.Size(25, 20);
+            this.buttonPencil.ToolTipText = "Pencil";
+            this.buttonPencil.Click += new System.EventHandler(this.buttonPencil_Click);
+            // 
+            // buttonRubber
+            // 
+            this.buttonRubber.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonRubber.Image = ((System.Drawing.Image)(resources.GetObject("buttonRubber.Image")));
+            this.buttonRubber.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonRubber.Name = "buttonRubber";
+            this.buttonRubber.Size = new System.Drawing.Size(25, 20);
+            this.buttonRubber.ToolTipText = "Rubber";
+            this.buttonRubber.Click += new System.EventHandler(this.buttonRubber_Click);
+            // 
+            // buttonLine
+            // 
+            this.buttonLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonLine.Image = ((System.Drawing.Image)(resources.GetObject("buttonLine.Image")));
+            this.buttonLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(25, 20);
+            this.buttonLine.ToolTipText = "Line";
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
+            // 
+            // buttonRectangle
+            // 
+            this.buttonRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
+            this.buttonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonRectangle.Name = "buttonRectangle";
+            this.buttonRectangle.Size = new System.Drawing.Size(25, 20);
+            this.buttonRectangle.ToolTipText = "Rectangle";
+            this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
+            // 
+            // buttonEllipse
+            // 
+            this.buttonEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonEllipse.Image = ((System.Drawing.Image)(resources.GetObject("buttonEllipse.Image")));
+            this.buttonEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonEllipse.Name = "buttonEllipse";
+            this.buttonEllipse.Size = new System.Drawing.Size(25, 20);
+            this.buttonEllipse.ToolTipText = "Ellipse";
+            this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(25, 6);
+            // 
+            // buttonColorDialog
+            // 
+            this.buttonColorDialog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonColorDialog.Image = ((System.Drawing.Image)(resources.GetObject("buttonColorDialog.Image")));
+            this.buttonColorDialog.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonColorDialog.Name = "buttonColorDialog";
+            this.buttonColorDialog.Size = new System.Drawing.Size(25, 20);
+            this.buttonColorDialog.ToolTipText = "Color picker";
+            this.buttonColorDialog.Click += new System.EventHandler(this.buttonColorDialog_Click);
+            // 
+            // textBoxColor
+            // 
+            this.textBoxColor.BackColor = System.Drawing.Color.White;
+            this.textBoxColor.Enabled = false;
+            this.textBoxColor.Name = "textBoxColor";
+            this.textBoxColor.Size = new System.Drawing.Size(23, 23);
+            this.textBoxColor.ToolTipText = "Picked color";
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Location = new System.Drawing.Point(29, 24);
+            this.pictureBox.MaximumSize = new System.Drawing.Size(982, 515);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(0, 0);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox.TabIndex = 3;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1008, 561);
+            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.toolStripDrawing);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1024, 600);
+            this.MinimumSize = new System.Drawing.Size(1024, 600);
+            this.Name = "Form1";
+            this.Text = "Simple raster image editor";
+            this.TransparencyKey = System.Drawing.SystemColors.HotTrack;
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.toolStripDrawing.ResumeLayout(false);
+            this.toolStripDrawing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuFile;
+        private System.Windows.Forms.ToolStripMenuItem menuFileNew;
+        private System.Windows.Forms.ToolStripMenuItem menuFileOpen;
+        private System.Windows.Forms.ToolStripMenuItem menuFileSave;
+        private System.Windows.Forms.ToolStripMenuItem menuImage;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusImageName;
+        private System.Windows.Forms.ToolStripStatusLabel statusFileNameContent;
+        private System.Windows.Forms.ToolStripStatusLabel statusFileSize;
+        private System.Windows.Forms.ToolStripStatusLabel statusFileSizeContent;
+        private System.Windows.Forms.ToolStripStatusLabel statusImageSize;
+        private System.Windows.Forms.ToolStripStatusLabel statusImageSizeContent;
+        private System.Windows.Forms.ToolStrip toolStripDrawing;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.ToolStripButton buttonPencil;
+        private System.Windows.Forms.ToolStripButton buttonRubber;
+        private System.Windows.Forms.ToolStripButton buttonColorDialog;
+        private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.ToolStripTextBox textBoxColor;
+        private System.Windows.Forms.ToolStripButton buttonLine;
+        private System.Windows.Forms.ToolStripButton buttonRectangle;
+        private System.Windows.Forms.ToolStripButton buttonEllipse;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem recoloringFiltersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuImageRecolorGrayscale;
+        private System.Windows.Forms.ToolStripMenuItem sepiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hueModifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateChannelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invertToolStripMenuItem;
     }
 }
 
