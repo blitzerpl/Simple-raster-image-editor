@@ -28,7 +28,7 @@ namespace Simple_raster_image_editor
         private void menuFileNew_Click(object sender, EventArgs e)
         {
             pictureBox.Refresh();
-            Bitmap bm = new Bitmap(962, 515);
+            Bitmap bm = new Bitmap(982, 515);
             pictureBox.Image = bm;
             CenterPictureBox();
         }
@@ -94,7 +94,7 @@ namespace Simple_raster_image_editor
 
         private void CenterPictureBox()
         {
-            pictureBox.Location = new Point((pictureBox.Parent.ClientSize.Width / 2) - (pictureBox.Image.Width / 2),
+            pictureBox.Location = new Point(((pictureBox.Parent.ClientSize.Width + toolStripDrawing.Width) / 2) - (pictureBox.Image.Width / 2),
                                         (pictureBox.Parent.ClientSize.Height / 2) - (pictureBox.Image.Height / 2));
             pictureBox.Refresh();
         }
@@ -161,7 +161,8 @@ namespace Simple_raster_image_editor
                             g.DrawLine(_pen, _previous.Value.X, _previous.Value.Y, e.X, e.Y);
                             _previous = new Point(e.X, e.Y);
                             break;
-                    }              
+                    }
+                    g.Dispose();              
                 }
             }
         }
@@ -183,13 +184,73 @@ namespace Simple_raster_image_editor
                         g.DrawEllipse(_pen, _previous.Value.X, _previous.Value.Y, e.X - _previous.Value.X, e.Y - _previous.Value.Y);
                         break;
                 }
+                g.Dispose();
             }
             _previous = null;
         }
 
         private void menuImageRecolorGrayscale_Click(object sender, EventArgs e)
         {
-            ImageEditor.ConvertToGrayscale(pictureBox);
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                ImageEditor.ConvertToGrayscale(pictureBox);
+            }
+        }
+
+        private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                ImageEditor.ConvertToSepia(pictureBox);
+            }
+        }
+
+        private void hueModifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                using (HueModifierForm hueModifierForm = new HueModifierForm())
+                {
+                    hueModifierForm.StartPosition = FormStartPosition.CenterParent;
+                    hueModifierForm.ShowDialog();
+                    if (hueModifierForm.DialogResult == DialogResult.OK)
+                    {
+                        ImageEditor.HueModifier(pictureBox, hueModifierForm.HueValue);
+                    }
+                }
+            }
+        }
+
+        private void rotateChannelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                ImageEditor.RotateChannels(pictureBox);
+            }
+        }
+
+        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                ImageEditor.Invert(pictureBox);
+            }
+        }
+
+        private void resizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ResizeForm resizeForm = new ResizeForm())
+            {
+                resizeForm.StartPosition = FormStartPosition.CenterParent;
+                resizeForm.ShowDialog();
+                if(resizeForm.DialogResult == DialogResult.OK)
+                {
+                    pictureBox.Image = ImageEditor.ResizeImage(pictureBox.Image, resizeForm.Width, resizeForm.Height);
+
+                    statusImageSizeContent.Text = pictureBox.Image.Size.Width.ToString() + " : " + pictureBox.Image.Size.Height.ToString();
+                    CenterPictureBox();
+                }
+            }
         }
     }
 }

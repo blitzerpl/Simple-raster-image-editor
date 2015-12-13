@@ -59,6 +59,7 @@
             this.textBoxColor = new System.Windows.Forms.ToolStripTextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStripDrawing.SuspendLayout();
@@ -117,7 +118,8 @@
             // menuImage
             // 
             this.menuImage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.recoloringFiltersToolStripMenuItem});
+            this.recoloringFiltersToolStripMenuItem,
+            this.resizeToolStripMenuItem});
             this.menuImage.Name = "menuImage";
             this.menuImage.Size = new System.Drawing.Size(52, 20);
             this.menuImage.Text = "Image";
@@ -146,24 +148,28 @@
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
             this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.sepiaToolStripMenuItem.Text = "Sepia";
+            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
             // 
             // hueModifierToolStripMenuItem
             // 
             this.hueModifierToolStripMenuItem.Name = "hueModifierToolStripMenuItem";
             this.hueModifierToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.hueModifierToolStripMenuItem.Text = "Hue Modifier";
+            this.hueModifierToolStripMenuItem.Click += new System.EventHandler(this.hueModifierToolStripMenuItem_Click);
             // 
             // rotateChannelsToolStripMenuItem
             // 
             this.rotateChannelsToolStripMenuItem.Name = "rotateChannelsToolStripMenuItem";
             this.rotateChannelsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.rotateChannelsToolStripMenuItem.Text = "Rotate Channels";
+            this.rotateChannelsToolStripMenuItem.Click += new System.EventHandler(this.rotateChannelsToolStripMenuItem_Click);
             // 
             // invertToolStripMenuItem
             // 
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
             this.invertToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.invertToolStripMenuItem.Text = "Invert";
+            this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -232,7 +238,7 @@
             this.textBoxColor});
             this.toolStripDrawing.Location = new System.Drawing.Point(0, 24);
             this.toolStripDrawing.Name = "toolStripDrawing";
-            this.toolStripDrawing.Size = new System.Drawing.Size(28, 515);
+            this.toolStripDrawing.Size = new System.Drawing.Size(24, 515);
             this.toolStripDrawing.TabIndex = 2;
             this.toolStripDrawing.Text = "toolStrip1";
             // 
@@ -242,7 +248,7 @@
             this.buttonPencil.Image = ((System.Drawing.Image)(resources.GetObject("buttonPencil.Image")));
             this.buttonPencil.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonPencil.Name = "buttonPencil";
-            this.buttonPencil.Size = new System.Drawing.Size(25, 20);
+            this.buttonPencil.Size = new System.Drawing.Size(21, 20);
             this.buttonPencil.ToolTipText = "Pencil";
             this.buttonPencil.Click += new System.EventHandler(this.buttonPencil_Click);
             // 
@@ -252,7 +258,7 @@
             this.buttonRubber.Image = ((System.Drawing.Image)(resources.GetObject("buttonRubber.Image")));
             this.buttonRubber.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonRubber.Name = "buttonRubber";
-            this.buttonRubber.Size = new System.Drawing.Size(25, 20);
+            this.buttonRubber.Size = new System.Drawing.Size(21, 20);
             this.buttonRubber.ToolTipText = "Rubber";
             this.buttonRubber.Click += new System.EventHandler(this.buttonRubber_Click);
             // 
@@ -262,7 +268,7 @@
             this.buttonLine.Image = ((System.Drawing.Image)(resources.GetObject("buttonLine.Image")));
             this.buttonLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(25, 20);
+            this.buttonLine.Size = new System.Drawing.Size(21, 20);
             this.buttonLine.ToolTipText = "Line";
             this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
@@ -272,7 +278,7 @@
             this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
             this.buttonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonRectangle.Name = "buttonRectangle";
-            this.buttonRectangle.Size = new System.Drawing.Size(25, 20);
+            this.buttonRectangle.Size = new System.Drawing.Size(21, 20);
             this.buttonRectangle.ToolTipText = "Rectangle";
             this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
             // 
@@ -282,14 +288,14 @@
             this.buttonEllipse.Image = ((System.Drawing.Image)(resources.GetObject("buttonEllipse.Image")));
             this.buttonEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonEllipse.Name = "buttonEllipse";
-            this.buttonEllipse.Size = new System.Drawing.Size(25, 20);
+            this.buttonEllipse.Size = new System.Drawing.Size(21, 20);
             this.buttonEllipse.ToolTipText = "Ellipse";
             this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(25, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(21, 6);
             // 
             // buttonColorDialog
             // 
@@ -297,7 +303,7 @@
             this.buttonColorDialog.Image = ((System.Drawing.Image)(resources.GetObject("buttonColorDialog.Image")));
             this.buttonColorDialog.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonColorDialog.Name = "buttonColorDialog";
-            this.buttonColorDialog.Size = new System.Drawing.Size(25, 20);
+            this.buttonColorDialog.Size = new System.Drawing.Size(21, 20);
             this.buttonColorDialog.ToolTipText = "Color picker";
             this.buttonColorDialog.Click += new System.EventHandler(this.buttonColorDialog_Click);
             // 
@@ -306,14 +312,14 @@
             this.textBoxColor.BackColor = System.Drawing.Color.White;
             this.textBoxColor.Enabled = false;
             this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(23, 23);
+            this.textBoxColor.Size = new System.Drawing.Size(19, 23);
             this.textBoxColor.ToolTipText = "Picked color";
             // 
             // pictureBox
             // 
             this.pictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.Location = new System.Drawing.Point(29, 24);
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.MaximumSize = new System.Drawing.Size(982, 515);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(0, 0);
@@ -323,6 +329,13 @@
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            // 
+            // resizeToolStripMenuItem
+            // 
+            this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.resizeToolStripMenuItem.Text = "Resize";
+            this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -385,6 +398,7 @@
         private System.Windows.Forms.ToolStripMenuItem hueModifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateChannelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resizeToolStripMenuItem;
     }
 }
 
