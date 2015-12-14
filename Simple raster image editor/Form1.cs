@@ -95,41 +95,33 @@ namespace Simple_raster_image_editor
         private void CenterPictureBox()
         {
             pictureBox.Location = new Point(((pictureBox.Parent.ClientSize.Width + toolStripDrawing.Width) / 2) - (pictureBox.Image.Width / 2),
-                                        (pictureBox.Parent.ClientSize.Height / 2) - (pictureBox.Image.Height / 2));
+                                        ((pictureBox.Parent.ClientSize.Height + menuStrip.Height) / 2) - (pictureBox.Image.Height / 2));
             pictureBox.Refresh();
         }
 
         private void buttonPencil_Click(object sender, EventArgs e)
         {
-            currItem = Item.Pencil;
-            _pen = new Pen(_color, 2);
-            _pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            SetPencil();
         }
 
         private void buttonRubber_Click(object sender, EventArgs e)
         {
-            currItem = Item.Rubber;
-            _pen = new Pen(Color.White, 10);
-            _pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            SetRubber();
         }
-
 
         private void buttonLine_Click(object sender, EventArgs e)
         {
-            currItem = Item.Line;
-            _pen = new Pen(_color, 3);
+            SetLine();
         }
 
         private void buttonRectangle_Click(object sender, EventArgs e)
         {
-            currItem = Item.Rectangle;
-            _pen = new Pen(_color, 3);
+            SetRectangle();
         }
 
         private void buttonEllipse_Click(object sender, EventArgs e)
         {
-            currItem = Item.Ellipse;
-            _pen = new Pen(_color, 3);
+            SetEllipse();
         }
 
         private void buttonColorDialog_Click(object sender, EventArgs e)
@@ -137,6 +129,57 @@ namespace Simple_raster_image_editor
             colorDialog.ShowDialog();
             _color = colorDialog.Color;
             textBoxColor.BackColor = _color;
+
+            switch(currItem)
+            {
+                case Item.Pencil:
+                    SetPencil();
+                    break;
+                case Item.Rubber:
+                    SetRubber();
+                    break;
+                case Item.Line:
+                    SetLine();
+                    break;
+                case Item.Rectangle:
+                    SetRectangle();
+                    break;
+                case Item.Ellipse:
+                    SetEllipse();
+                    break;
+            }
+        }
+
+        private void SetPencil()
+        {
+            currItem = Item.Pencil;
+            _pen = new Pen(_color, 2);
+            _pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+        }
+
+        private void SetRubber()
+        {
+            currItem = Item.Rubber;
+            _pen = new Pen(Color.White, 10);
+            _pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+        }
+
+        private void SetLine()
+        {
+            currItem = Item.Line;
+            _pen = new Pen(_color, 3);
+        }
+
+        private void SetRectangle()
+        {
+            currItem = Item.Rectangle;
+            _pen = new Pen(_color, 3);
+        }
+
+        private void SetEllipse()
+        {
+            currItem = Item.Ellipse;
+            _pen = new Pen(_color, 3);
         }
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -189,6 +232,35 @@ namespace Simple_raster_image_editor
             _previous = null;
         }
 
+        private void resizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ResizeForm resizeForm = new ResizeForm())
+            {
+                resizeForm.StartPosition = FormStartPosition.CenterParent;
+                resizeForm.ShowDialog();
+                if (resizeForm.DialogResult == DialogResult.OK)
+                {
+                    ImageEditor.ResizeBilinearImage(pictureBox, resizeForm.Width, resizeForm.Height);
+
+                    statusImageSizeContent.Text = pictureBox.Image.Size.Width.ToString() + " : " + pictureBox.Image.Size.Height.ToString();
+                    CenterPictureBox();
+                }
+            }
+        }
+
+        private void imageRotate_Click(object sender, EventArgs e)
+        {
+            using (RotateForm rotateForm = new RotateForm())
+            {
+                rotateForm.StartPosition = FormStartPosition.CenterParent;
+                rotateForm.ShowDialog();
+                if (rotateForm.DialogResult == DialogResult.OK)
+                {
+                    ImageEditor.RotateBilinear(pictureBox, rotateForm.Angle);
+                }
+            }
+        }
+
         private void menuImageRecolorGrayscale_Click(object sender, EventArgs e)
         {
             if (pictureBox.Image != null && pictureBox.Image.PixelFormat != PixelFormat.Format8bppIndexed)
@@ -237,19 +309,35 @@ namespace Simple_raster_image_editor
             }
         }
 
-        private void resizeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void imageEdgeDetectorsHomogenity_Click(object sender, EventArgs e)
         {
-            using (ResizeForm resizeForm = new ResizeForm())
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat == PixelFormat.Format8bppIndexed)  //The filter accepts 8 bpp grayscale images for processing
             {
-                resizeForm.StartPosition = FormStartPosition.CenterParent;
-                resizeForm.ShowDialog();
-                if(resizeForm.DialogResult == DialogResult.OK)
-                {
-                    pictureBox.Image = ImageEditor.ResizeImage(pictureBox.Image, resizeForm.Width, resizeForm.Height);
+                ImageEditor.HomogenityEdgeDetector(pictureBox);
+            }
+        }
 
-                    statusImageSizeContent.Text = pictureBox.Image.Size.Width.ToString() + " : " + pictureBox.Image.Size.Height.ToString();
-                    CenterPictureBox();
-                }
+        private void differenceEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat == PixelFormat.Format8bppIndexed)  //The filter accepts 8 bpp grayscale images for processing
+            {
+                ImageEditor.DifferenceEdgeDetector(pictureBox);
+            }
+        }
+
+        private void sobelEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat == PixelFormat.Format8bppIndexed)  //The filter accepts 8 bpp grayscale images for processing
+            {
+                ImageEditor.SobelEdgeDetector(pictureBox);
+            }
+        }
+
+        private void cannyEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null && pictureBox.Image.PixelFormat == PixelFormat.Format8bppIndexed)  //The filter accepts 8 bpp grayscale images for processing
+            {
+                ImageEditor.CannyEdgeDetector(pictureBox);
             }
         }
     }

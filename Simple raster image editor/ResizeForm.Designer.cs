@@ -52,7 +52,7 @@
             // 
             this.numericUpDownWidth.Location = new System.Drawing.Point(73, 12);
             this.numericUpDownWidth.Maximum = new decimal(new int[] {
-            500,
+            800,
             0,
             0,
             0});
@@ -83,7 +83,7 @@
             // 
             this.numericUpDownHeight.Location = new System.Drawing.Point(73, 43);
             this.numericUpDownHeight.Maximum = new decimal(new int[] {
-            500,
+            600,
             0,
             0,
             0});
@@ -117,7 +117,7 @@
             this.MinimumSize = new System.Drawing.Size(189, 146);
             this.Name = "ResizeForm";
             this.ShowIcon = false;
-            this.Text = "ResizeForm";
+            this.Text = "Resize";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).EndInit();
             this.ResumeLayout(false);
