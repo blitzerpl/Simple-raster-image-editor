@@ -35,12 +35,20 @@
             this.menuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFileSave = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImage = new System.Windows.Forms.ToolStripMenuItem();
+            this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageRotate = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.recoloringFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImageRecolorGrayscale = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hueModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateChannelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeDetectorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageEdgeDetectorsHomogenity = new System.Windows.Forms.ToolStripMenuItem();
+            this.differenceEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cannyEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusImageName = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusFileNameContent = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,7 +67,9 @@
             this.textBoxColor = new System.Windows.Forms.ToolStripTextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.resizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linearColorCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightnessCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrastCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStripDrawing.SuspendLayout();
@@ -118,11 +128,34 @@
             // menuImage
             // 
             this.menuImage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resizeToolStripMenuItem,
+            this.imageRotate,
+            this.toolStripSeparator2,
             this.recoloringFiltersToolStripMenuItem,
-            this.resizeToolStripMenuItem});
+            this.edgeDetectorsToolStripMenuItem,
+            this.linearColorCorrectionToolStripMenuItem});
             this.menuImage.Name = "menuImage";
             this.menuImage.Size = new System.Drawing.Size(52, 20);
             this.menuImage.Text = "Image";
+            // 
+            // resizeToolStripMenuItem
+            // 
+            this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.resizeToolStripMenuItem.Text = "Resize";
+            this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
+            // 
+            // imageRotate
+            // 
+            this.imageRotate.Name = "imageRotate";
+            this.imageRotate.Size = new System.Drawing.Size(168, 22);
+            this.imageRotate.Text = "Rotate";
+            this.imageRotate.Click += new System.EventHandler(this.imageRotate_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(165, 6);
             // 
             // recoloringFiltersToolStripMenuItem
             // 
@@ -171,6 +204,45 @@
             this.invertToolStripMenuItem.Text = "Invert";
             this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
+            // edgeDetectorsToolStripMenuItem
+            // 
+            this.edgeDetectorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imageEdgeDetectorsHomogenity,
+            this.differenceEdgeDetectorToolStripMenuItem,
+            this.sobelEdgeDetectorToolStripMenuItem,
+            this.cannyEdgeDetectorToolStripMenuItem});
+            this.edgeDetectorsToolStripMenuItem.Name = "edgeDetectorsToolStripMenuItem";
+            this.edgeDetectorsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.edgeDetectorsToolStripMenuItem.Text = "Edge detectors";
+            // 
+            // imageEdgeDetectorsHomogenity
+            // 
+            this.imageEdgeDetectorsHomogenity.Name = "imageEdgeDetectorsHomogenity";
+            this.imageEdgeDetectorsHomogenity.Size = new System.Drawing.Size(217, 22);
+            this.imageEdgeDetectorsHomogenity.Text = "Homogenity edge detector";
+            this.imageEdgeDetectorsHomogenity.Click += new System.EventHandler(this.imageEdgeDetectorsHomogenity_Click);
+            // 
+            // differenceEdgeDetectorToolStripMenuItem
+            // 
+            this.differenceEdgeDetectorToolStripMenuItem.Name = "differenceEdgeDetectorToolStripMenuItem";
+            this.differenceEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.differenceEdgeDetectorToolStripMenuItem.Text = "Difference edge detector";
+            this.differenceEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.differenceEdgeDetectorToolStripMenuItem_Click);
+            // 
+            // sobelEdgeDetectorToolStripMenuItem
+            // 
+            this.sobelEdgeDetectorToolStripMenuItem.Name = "sobelEdgeDetectorToolStripMenuItem";
+            this.sobelEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.sobelEdgeDetectorToolStripMenuItem.Text = "Sobel edge detector";
+            this.sobelEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.sobelEdgeDetectorToolStripMenuItem_Click);
+            // 
+            // cannyEdgeDetectorToolStripMenuItem
+            // 
+            this.cannyEdgeDetectorToolStripMenuItem.Name = "cannyEdgeDetectorToolStripMenuItem";
+            this.cannyEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.cannyEdgeDetectorToolStripMenuItem.Text = "Canny edge detector";
+            this.cannyEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.cannyEdgeDetectorToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.LemonChiffon;
@@ -181,7 +253,7 @@
             this.statusFileSizeContent,
             this.statusImageSize,
             this.statusImageSizeContent});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 1;
@@ -238,7 +310,7 @@
             this.textBoxColor});
             this.toolStripDrawing.Location = new System.Drawing.Point(0, 24);
             this.toolStripDrawing.Name = "toolStripDrawing";
-            this.toolStripDrawing.Size = new System.Drawing.Size(24, 515);
+            this.toolStripDrawing.Size = new System.Drawing.Size(24, 516);
             this.toolStripDrawing.TabIndex = 2;
             this.toolStripDrawing.Text = "toolStrip1";
             // 
@@ -330,19 +402,35 @@
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
-            // resizeToolStripMenuItem
+            // linearColorCorrectionToolStripMenuItem
             // 
-            this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
-            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.resizeToolStripMenuItem.Text = "Resize";
-            this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
+            this.linearColorCorrectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brightnessCorrectionToolStripMenuItem,
+            this.contrastCorrectionToolStripMenuItem});
+            this.linearColorCorrectionToolStripMenuItem.Name = "linearColorCorrectionToolStripMenuItem";
+            this.linearColorCorrectionToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.linearColorCorrectionToolStripMenuItem.Text = "Linear color correction";
+            // 
+            // brightnessCorrectionToolStripMenuItem
+            // 
+            this.brightnessCorrectionToolStripMenuItem.Name = "brightnessCorrectionToolStripMenuItem";
+            this.brightnessCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.brightnessCorrectionToolStripMenuItem.Text = "Brightness correction";
+            this.brightnessCorrectionToolStripMenuItem.Click += new System.EventHandler(this.brightnessCorrectionToolStripMenuItem_Click);
+            // 
+            // contrastCorrectionToolStripMenuItem
+            // 
+            this.contrastCorrectionToolStripMenuItem.Name = "contrastCorrectionToolStripMenuItem";
+            this.contrastCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.contrastCorrectionToolStripMenuItem.Text = "Contrast correction";
+            this.contrastCorrectionToolStripMenuItem.Click += new System.EventHandler(this.contrastCorrectionToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1008, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 562);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolStripDrawing);
             this.Controls.Add(this.statusStrip1);
@@ -399,6 +487,16 @@
         private System.Windows.Forms.ToolStripMenuItem rotateChannelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edgeDetectorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageEdgeDetectorsHomogenity;
+        private System.Windows.Forms.ToolStripMenuItem differenceEdgeDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelEdgeDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cannyEdgeDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageRotate;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem linearColorCorrectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem brightnessCorrectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contrastCorrectionToolStripMenuItem;
     }
 }
 
