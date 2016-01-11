@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AForge.Math;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -45,7 +46,9 @@ namespace Simple_raster_image_editor
 
                     statusFileNameContent.Text = Path.GetFileName(o.FileName) + "     ";
                     statusFileSizeContent.Text = Math.Round((double)new FileInfo(o.FileName).Length / _oneKb, 2).ToString() + " KB     ";
-                    statusImageSizeContent.Text = pictureBox.Image.Size.Width.ToString() + " : " + pictureBox.Image.Size.Height.ToString();
+                    statusImageSizeContent.Text = pictureBox.Image.Size.Width.ToString() + " : " + pictureBox.Image.Size.Height.ToString() + "       ";
+
+                    UploadColorStatistics();
                     CenterPictureBox();
                 }
                 else
@@ -90,6 +93,13 @@ namespace Simple_raster_image_editor
             {
                 MessageBox.Show("You can't save empty picture.", "Warning");
             }
+        }
+
+        private void UploadColorStatistics()
+        {
+            toolStripStatusLabelRed.Text = ImageEditor.RedStatistics(pictureBox).ToString("F2");
+            toolStripStatusLabelBlue.Text = ImageEditor.BlueStatistics(pictureBox).ToString("F2");
+            toolStripStatusLabelGreen.Text = ImageEditor.GreenStatistics(pictureBox).ToString("F2");
         }
 
         private void CenterPictureBox()
@@ -275,6 +285,7 @@ namespace Simple_raster_image_editor
             {
                 ImageEditor.ConvertToSepia(pictureBox);
             }
+            UploadColorStatistics();
         }
 
         private void hueModifierToolStripMenuItem_Click(object sender, EventArgs e)
@@ -291,6 +302,7 @@ namespace Simple_raster_image_editor
                     }
                 }
             }
+            UploadColorStatistics();
         }
 
         private void rotateChannelsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,6 +311,7 @@ namespace Simple_raster_image_editor
             {
                 ImageEditor.RotateChannels(pictureBox);
             }
+            UploadColorStatistics();
         }
 
         private void invertToolStripMenuItem_Click(object sender, EventArgs e)
@@ -307,6 +320,7 @@ namespace Simple_raster_image_editor
             {
                 ImageEditor.Invert(pictureBox);
             }
+            UploadColorStatistics();
         }
 
         private void imageEdgeDetectorsHomogenity_Click(object sender, EventArgs e)
@@ -355,6 +369,7 @@ namespace Simple_raster_image_editor
                     }
                 }
             }
+            UploadColorStatistics();
         }
 
         private void contrastCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -371,6 +386,7 @@ namespace Simple_raster_image_editor
                     }
                 }
             }
+            UploadColorStatistics();
         }
     }
 }

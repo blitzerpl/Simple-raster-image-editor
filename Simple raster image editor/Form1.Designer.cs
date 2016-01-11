@@ -49,6 +49,9 @@
             this.differenceEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobelEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cannyEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linearColorCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightnessCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contrastCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusImageName = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusFileNameContent = new System.Windows.Forms.ToolStripStatusLabel();
@@ -67,9 +70,12 @@
             this.textBoxColor = new System.Windows.Forms.ToolStripTextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.linearColorCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.brightnessCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contrastCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelBlue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelGreen = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelRed = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStripDrawing.SuspendLayout();
@@ -141,21 +147,21 @@
             // resizeToolStripMenuItem
             // 
             this.resizeToolStripMenuItem.Name = "resizeToolStripMenuItem";
-            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.resizeToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.resizeToolStripMenuItem.Text = "Resize";
             this.resizeToolStripMenuItem.Click += new System.EventHandler(this.resizeToolStripMenuItem_Click);
             // 
             // imageRotate
             // 
             this.imageRotate.Name = "imageRotate";
-            this.imageRotate.Size = new System.Drawing.Size(168, 22);
+            this.imageRotate.Size = new System.Drawing.Size(193, 22);
             this.imageRotate.Text = "Rotate";
             this.imageRotate.Click += new System.EventHandler(this.imageRotate_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
             // 
             // recoloringFiltersToolStripMenuItem
             // 
@@ -166,7 +172,7 @@
             this.rotateChannelsToolStripMenuItem,
             this.invertToolStripMenuItem});
             this.recoloringFiltersToolStripMenuItem.Name = "recoloringFiltersToolStripMenuItem";
-            this.recoloringFiltersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.recoloringFiltersToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.recoloringFiltersToolStripMenuItem.Text = "Re-coloring filters";
             // 
             // menuImageRecolorGrayscale
@@ -212,7 +218,7 @@
             this.sobelEdgeDetectorToolStripMenuItem,
             this.cannyEdgeDetectorToolStripMenuItem});
             this.edgeDetectorsToolStripMenuItem.Name = "edgeDetectorsToolStripMenuItem";
-            this.edgeDetectorsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.edgeDetectorsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.edgeDetectorsToolStripMenuItem.Text = "Edge detectors";
             // 
             // imageEdgeDetectorsHomogenity
@@ -243,6 +249,29 @@
             this.cannyEdgeDetectorToolStripMenuItem.Text = "Canny edge detector";
             this.cannyEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.cannyEdgeDetectorToolStripMenuItem_Click);
             // 
+            // linearColorCorrectionToolStripMenuItem
+            // 
+            this.linearColorCorrectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brightnessCorrectionToolStripMenuItem,
+            this.contrastCorrectionToolStripMenuItem});
+            this.linearColorCorrectionToolStripMenuItem.Name = "linearColorCorrectionToolStripMenuItem";
+            this.linearColorCorrectionToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.linearColorCorrectionToolStripMenuItem.Text = "Linear color correction";
+            // 
+            // brightnessCorrectionToolStripMenuItem
+            // 
+            this.brightnessCorrectionToolStripMenuItem.Name = "brightnessCorrectionToolStripMenuItem";
+            this.brightnessCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.brightnessCorrectionToolStripMenuItem.Text = "Brightness correction";
+            this.brightnessCorrectionToolStripMenuItem.Click += new System.EventHandler(this.brightnessCorrectionToolStripMenuItem_Click);
+            // 
+            // contrastCorrectionToolStripMenuItem
+            // 
+            this.contrastCorrectionToolStripMenuItem.Name = "contrastCorrectionToolStripMenuItem";
+            this.contrastCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.contrastCorrectionToolStripMenuItem.Text = "Contrast correction";
+            this.contrastCorrectionToolStripMenuItem.Click += new System.EventHandler(this.contrastCorrectionToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.LemonChiffon;
@@ -252,7 +281,13 @@
             this.statusFileSize,
             this.statusFileSizeContent,
             this.statusImageSize,
-            this.statusImageSizeContent});
+            this.statusImageSizeContent,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabelRed,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabelGreen,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelBlue});
             this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
@@ -402,28 +437,41 @@
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
-            // linearColorCorrectionToolStripMenuItem
+            // toolStripStatusLabel1
             // 
-            this.linearColorCorrectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.brightnessCorrectionToolStripMenuItem,
-            this.contrastCorrectionToolStripMenuItem});
-            this.linearColorCorrectionToolStripMenuItem.Name = "linearColorCorrectionToolStripMenuItem";
-            this.linearColorCorrectionToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.linearColorCorrectionToolStripMenuItem.Text = "Linear color correction";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Blue:";
             // 
-            // brightnessCorrectionToolStripMenuItem
+            // toolStripStatusLabelBlue
             // 
-            this.brightnessCorrectionToolStripMenuItem.Name = "brightnessCorrectionToolStripMenuItem";
-            this.brightnessCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.brightnessCorrectionToolStripMenuItem.Text = "Brightness correction";
-            this.brightnessCorrectionToolStripMenuItem.Click += new System.EventHandler(this.brightnessCorrectionToolStripMenuItem_Click);
+            this.toolStripStatusLabelBlue.Name = "toolStripStatusLabelBlue";
+            this.toolStripStatusLabelBlue.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabelBlue.Text = "      ";
             // 
-            // contrastCorrectionToolStripMenuItem
+            // toolStripStatusLabel3
             // 
-            this.contrastCorrectionToolStripMenuItem.Name = "contrastCorrectionToolStripMenuItem";
-            this.contrastCorrectionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.contrastCorrectionToolStripMenuItem.Text = "Contrast correction";
-            this.contrastCorrectionToolStripMenuItem.Click += new System.EventHandler(this.contrastCorrectionToolStripMenuItem_Click);
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel3.Text = "Green:";
+            // 
+            // toolStripStatusLabelGreen
+            // 
+            this.toolStripStatusLabelGreen.Name = "toolStripStatusLabelGreen";
+            this.toolStripStatusLabelGreen.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabelGreen.Text = "      ";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(30, 17);
+            this.toolStripStatusLabel5.Text = "Red:";
+            // 
+            // toolStripStatusLabelRed
+            // 
+            this.toolStripStatusLabelRed.Name = "toolStripStatusLabelRed";
+            this.toolStripStatusLabelRed.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabelRed.Text = "      ";
             // 
             // Form1
             // 
@@ -497,6 +545,12 @@
         private System.Windows.Forms.ToolStripMenuItem linearColorCorrectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem brightnessCorrectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contrastCorrectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelRed;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelGreen;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelBlue;
     }
 }
 

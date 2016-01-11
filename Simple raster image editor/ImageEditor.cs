@@ -90,5 +90,20 @@ namespace Simple_raster_image_editor
             CannyEdgeDetector filter = new CannyEdgeDetector();
             pictureBox.Image = filter.Apply((Bitmap)pictureBox.Image);
         }
+
+        public static double RedStatistics(PictureBox pictureBox)
+        {
+            return new ImageStatistics((Bitmap)pictureBox.Image).Red.Mean;
+        }
+
+        public static double BlueStatistics(PictureBox pictureBox)
+        {
+            return new ImageStatistics((Bitmap)pictureBox.Image).Blue.Mean;
+        }
+
+        public static double GreenStatistics(PictureBox pictureBox)
+        {
+            return new ImageStatistics((Bitmap)pictureBox.Image).Green.Mean;
+        }
     }
 }
